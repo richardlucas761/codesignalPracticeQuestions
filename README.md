@@ -8,7 +8,7 @@ For a given integer value returns the sum of the digits so an input of 29 gives 
 
 ## ProcessQueries
 
-Process a list of operations to either ADD or check whether a specified integer "EXISTS".
+Process a list of operations to either "ADD" an integer, check whether a specified integer "EXISTS" or "REMOVE" the first occurrence of an integer. A response which gives an optional result of these operations is returned. Empty string indicates there was no result as in the case of the "ADD" operation.
 
 This method uses a Jagged Array: https://stackoverflow.com/questions/2576759/what-is-a-jagged-array 
 
