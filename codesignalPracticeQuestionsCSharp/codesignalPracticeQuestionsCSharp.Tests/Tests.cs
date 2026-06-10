@@ -46,8 +46,7 @@ namespace codesignalPracticeQuestionsCSharp.Tests
             // Act
             var result = Program.ProcessQueries(queries);
 
-            string[] expected = ["", "", "", "",
-                "true", "true", "true", "false", "false", "false"];
+            string[] expected = ["", "", "", "", "true", "true", "true", "false", "false", "false"];
 
             // Assert
             result.Should().BeEquivalentTo(expected);
@@ -81,26 +80,8 @@ namespace codesignalPracticeQuestionsCSharp.Tests
             // Act
             var result = Program.ProcessQueries(queries);
 
-            string[] expected =
-                ["false",
-                 "false",
-                 "",
-                 "",
-                 "",
-                 "true",
-                 "false",
-                 "true",
-                 "false",
-                 "",
-                 "",
-                 "true",
-                 "false",
-                 "true",
-                 "true",
-                 "false",
-                 "true",
-                 "true",
-                 "false"];
+            string[] expected = ["false", "false", "", "", "", "true", "false", "true", "false", "", "", "true",
+                "false", "true", "true", "false", "true", "true", "false"];
 
             // Assert
             result.Should().BeEquivalentTo(expected);
@@ -124,9 +105,7 @@ namespace codesignalPracticeQuestionsCSharp.Tests
             // Act
             var result = Program.ProcessQueries(queries);
 
-            string[] expected =
-                ["", "", "", "",
-                "false", "true", "true", "true", "false"];
+            string[] expected = ["", "", "", "", "false", "true", "true", "true", "false"];
 
             // Assert
             result.Should().BeEquivalentTo(expected);
@@ -152,11 +131,7 @@ namespace codesignalPracticeQuestionsCSharp.Tests
             // Act
             var result = Program.ProcessQueries(queries);
 
-            string[] expected =
-                ["", "", "", "",
-                "true", "true", "true",
-                "true", "true",
-                "true", "false"];
+            string[] expected = ["", "", "", "", "true", "true", "true", "true", "true", "true", "false"];
 
             // Assert
             result.Should().BeEquivalentTo(expected);
@@ -187,9 +162,8 @@ namespace codesignalPracticeQuestionsCSharp.Tests
             // Act
             var result = Program.ProcessQueries(queries);
 
-            string[] expected =
-                ["", "", "", "false", "false", "false", "true", "true", "false",
-                "false", "false", "false", "true", "false", "", "true"];
+            string[] expected = ["", "", "", "false", "false", "false", "true", "true", "false", "false", "false",
+                "false", "true", "false", "", "true"];
 
             // Assert
             result.Should().BeEquivalentTo(expected);
@@ -231,10 +205,96 @@ namespace codesignalPracticeQuestionsCSharp.Tests
             // Act
             var result = Program.ProcessQueries(queries);
 
-            string[] expected =
-                ["", "", "", "true", "", "", "", "", "true", "true", "true", "false", "false", "true",
-                "true", "true", "false", "false", "false", "false", "true", "true", "true", "false", "false",
-                "", "true"];
+            string[] expected = ["", "", "", "true", "", "", "", "", "true", "true", "true", "false", "false", "true",
+                "true", "true", "false", "false", "false", "false", "true", "true", "true", "false", "false", "",
+                "true"];
+
+            // Assert
+            result.Should().BeEquivalentTo(expected);
+        }
+
+        [TestMethod]
+        public void ProcessQueriesTest7()
+        {
+            // Arrange
+            string[][] queries =
+                [["ADD","1"],
+                 ["ADD","2"],
+                 ["ADD","2"],
+                 ["ADD","4"],
+                 ["GET_NEXT","1"],
+                 ["GET_NEXT","2"],
+                 ["GET_NEXT","3"],
+                 ["GET_NEXT","4"],
+                 ["REMOVE","2"],
+                 ["GET_NEXT","1"],
+                 ["GET_NEXT","2"],
+                 ["GET_NEXT","3"],
+                 ["GET_NEXT","4"]];
+
+            // Act
+            var result = Program.ProcessQueries(queries);
+
+            string[] expected = ["", "", "", "", "2", "4", "4", "", "true", "2", "4", "4", ""];
+
+            // Assert
+            result.Should().BeEquivalentTo(expected);
+        }
+
+        [TestMethod]
+        public void ProcessQueriesTest8()
+        {
+            // Arrange
+            string[][] queries =
+                [["ADD","2"],
+                 ["ADD","4"],
+                 ["ADD","9"],
+                 ["GET_NEXT","0"],
+                 ["GET_NEXT","1"],
+                 ["GET_NEXT","2"],
+                 ["GET_NEXT","3"],
+                 ["GET_NEXT","4"],
+                 ["GET_NEXT","9"]];
+
+            // Act
+            var result = Program.ProcessQueries(queries);
+
+            string[] expected = ["", "", "", "2", "2", "4", "4", "9", ""];
+
+            // Assert
+            result.Should().BeEquivalentTo(expected);
+        }
+
+        [TestMethod]
+        public void ProcessQueriesTest9()
+        {
+            // Arrange
+            string[][] queries =
+                [["ADD","0"],
+                 ["ADD","1"],
+                 ["ADD","1"],
+                 ["ADD","11"],
+                 ["ADD","22"],
+                 ["ADD","3"],
+                 ["ADD","5"],
+                 ["GET_NEXT","0"],
+                 ["GET_NEXT","1"],
+                 ["REMOVE","1"],
+                 ["GET_NEXT","1"],
+                 ["ADD","0"],
+                 ["ADD","1"],
+                 ["ADD","2"],
+                 ["ADD","1"],
+                 ["GET_NEXT","1"],
+                 ["GET_NEXT","2"],
+                 ["GET_NEXT","3"],
+                 ["GET_NEXT","5"]];
+
+            // Act
+            var result = Program.ProcessQueries(queries);
+
+            string[] expected = ["", "", "", "", "", "", "", "1", "3", "true", "3", "", "", "", "",
+                "2", "3", "5", "11"];
 
             // Assert
             result.Should().BeEquivalentTo(expected);
