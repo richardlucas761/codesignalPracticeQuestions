@@ -1,4 +1,6 @@
-﻿namespace codesignalPracticeQuestionsCSharp
+﻿using System.Linq;
+
+namespace codesignalPracticeQuestionsCSharp
 {
     public static class Program
     {
@@ -44,6 +46,29 @@
                 {
                     // Adds "true" or "false" depending on whether the integer was removed once or not
                     output.Add(integers.Remove(parameterAsInt).ToString().ToLowerInvariant());
+                }
+                // TODO refactor GET_NEXT into a separate routine as the ProcessQueries method is getting
+                // too large, difficult to specify sub routines in the Code Signal web based IDE so leaving this
+                // as is.
+                else if (operation == "GET_NEXT")
+                {
+                    // Return the minimal integer in the container that is strictly greater than the provided value.
+                    // In case there is no such integer in the container, return empty string.
+
+                    var greater = integers.OrderBy(x => x).FirstOrDefault(x => x > parameterAsInt);
+
+                    // TODO: can't use this cleaner solution in .NET 9 which is what the Code Signal
+                    // practice test uses.
+                    // var greater = integers.Order().FirstOrDefault(x => x > parameterAsInt);
+
+                    if (greater == 0)
+                    {
+                        output.Add(string.Empty);
+                    }
+                    else
+                    {
+                        output.Add(greater.ToString());
+                    }
                 }
             }
 
