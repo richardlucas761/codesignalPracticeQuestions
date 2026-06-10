@@ -1,3 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="../README.md" />
+  </Folder>
+  <Project Path="codesignalPracticeQuestionsCSharp.Tests/codesignalPracticeQuestionsCSharp.Tests.csproj" Id="56c1ce63-fc29-43be-8ab6-51b627c72afb" />
   <Project Path="codesignalPracticeQuestionsCSharp/codesignalPracticeQuestionsCSharp.csproj" />
 </Solution>
