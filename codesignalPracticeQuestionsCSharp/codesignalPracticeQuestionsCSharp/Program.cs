@@ -37,8 +37,13 @@
                 }
                 else if (operation == "EXISTS")
                 {
-                    // Adds "true" or "false"
+                    // Adds "true" or "false" depending on whether the integer exists or not
                     output.Add(integers.Contains(parameterAsInt).ToString().ToLowerInvariant());
+                }
+                else if (operation == "REMOVE")
+                {
+                    // Adds "true" or "false" depending on whether the integer was removed once or not
+                    output.Add(integers.Remove(parameterAsInt).ToString().ToLowerInvariant());
                 }
             }
 

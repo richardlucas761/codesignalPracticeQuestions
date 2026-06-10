@@ -131,5 +131,113 @@ namespace codesignalPracticeQuestionsCSharp.Tests
             // Assert
             result.Should().BeEquivalentTo(expected);
         }
+
+        [TestMethod]
+        public void ProcessQueriesTest4()
+        {
+            // Arrange
+            string[][] queries =
+                [["ADD","1"],
+                 ["ADD","2"],
+                 ["ADD","2"],
+                 ["ADD","3"],
+                 ["EXISTS","1"],
+                 ["EXISTS","2"],
+                 ["EXISTS","3"],
+                 ["REMOVE","2"],
+                 ["REMOVE","1"],
+                 ["EXISTS","2"],
+                 ["EXISTS","1"]];
+
+            // Act
+            var result = Program.ProcessQueries(queries);
+
+            string[] expected =
+                ["", "", "", "",
+                "true", "true", "true",
+                "true", "true",
+                "true", "false"];
+
+            // Assert
+            result.Should().BeEquivalentTo(expected);
+        }
+
+        [TestMethod]
+        public void ProcessQueriesTest5()
+        {
+            // Arrange
+            string[][] queries =
+                [["ADD","2"],
+                 ["ADD","3"],
+                 ["ADD","9"],
+                 ["REMOVE","10"],
+                 ["REMOVE","5"],
+                 ["REMOVE","5"],
+                 ["REMOVE","9"],
+                 ["REMOVE","2"],
+                 ["REMOVE","2"],
+                 ["REMOVE","9"],
+                 ["EXISTS","10"],
+                 ["EXISTS","2"],
+                 ["EXISTS","3"],
+                 ["EXISTS","9"],
+                 ["ADD","10"],
+                 ["EXISTS","10"]];
+
+            // Act
+            var result = Program.ProcessQueries(queries);
+
+            string[] expected =
+                ["", "", "", "false", "false", "false", "true", "true", "false",
+                "false", "false", "false", "true", "false", "", "true"];
+
+            // Assert
+            result.Should().BeEquivalentTo(expected);
+        }
+
+        [TestMethod]
+        public void ProcessQueriesTest6()
+        {
+            // Arrange
+            string[][] queries =
+                [["ADD","0"],
+                 ["ADD","1"],
+                 ["ADD","2"],
+                 ["REMOVE","1"],
+                 ["ADD","0"],
+                 ["ADD","1"],
+                 ["ADD","2"],
+                 ["ADD","1"],
+                 ["REMOVE","2"],
+                 ["EXISTS","2"],
+                 ["REMOVE","2"],
+                 ["EXISTS","2"],
+                 ["REMOVE","2"],
+                 ["REMOVE","1"],
+                 ["EXISTS","1"],
+                 ["REMOVE","1"],
+                 ["EXISTS","1"],
+                 ["REMOVE","1"],
+                 ["EXISTS","1"],
+                 ["REMOVE","1"],
+                 ["REMOVE","0"],
+                 ["EXISTS","0"],
+                 ["REMOVE","0"],
+                 ["EXISTS","0"],
+                 ["REMOVE","0"],
+                 ["ADD","0"],
+                 ["EXISTS","0"]];
+
+            // Act
+            var result = Program.ProcessQueries(queries);
+
+            string[] expected =
+                ["", "", "", "true", "", "", "", "", "true", "true", "true", "false", "false", "true",
+                "true", "true", "false", "false", "false", "false", "true", "true", "true", "false", "false",
+                "", "true"];
+
+            // Assert
+            result.Should().BeEquivalentTo(expected);
+        }
     }
 }
