@@ -18,6 +18,12 @@
             return total;
         }
 
+        public static string[] ProcessQueries(string[][] queries)
+        {
+            // TODO implement
+            return [];
+        }
+
         public static void Main()
         {
             Console.WriteLine("Hello, World!");
