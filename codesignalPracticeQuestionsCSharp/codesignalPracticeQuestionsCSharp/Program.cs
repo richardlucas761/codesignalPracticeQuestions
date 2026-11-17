@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace codesignalPracticeQuestionsCSharp
+﻿namespace codesignalPracticeQuestionsCSharp
 {
     public static class Program
     {
